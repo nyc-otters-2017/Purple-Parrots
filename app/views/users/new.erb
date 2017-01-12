@@ -1,7 +1,11 @@
 <div class="new-user-container">
   <form class="new-user-form" action="/users" method="post">
-    <input type="email" name="user[email]" placeholder="email">
-    <input type="password" name="user[password1]" value="password1" placeholder="password">
-    <input type="password" name="user[password2]" value="password2" placeholder="re-enter password">
+    <label for="user[email]">Email:</label>
+    <input type="email" name="user[email]" placeholder="email" class="email">
+    <label for="user[password1]">Password:</label>
+    <input type="password" name="user[password1]" placeholder="password" class="password">
+    <label for="user[password2]">Password:</label>
+    <input type="password" name="user[password2]" placeholder="password" class="password">
+    <input type="submit" name="submit" value="Register">
   </form>
 </div>

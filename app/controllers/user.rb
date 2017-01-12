@@ -1,12 +1,16 @@
 get '/users' do
-  redirect '/'
+  erb :'/users/index'
 end
 
 
 
 
 get '/users/new' do
-  erb :'/users/new'
+  if current_user
+    redirect '/'
+  else
+    erb :'/users/new'
+  end
 end
 
 
@@ -26,7 +30,11 @@ end
 
 
 get '/users/login' do
-  erb :'/users/login'
+  if current_user
+    redirect '/'
+  else
+    erb :'/users/login'
+  end
 end
 
 
