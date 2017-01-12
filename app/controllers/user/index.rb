@@ -44,7 +44,12 @@ end
 
 get '/users/:id/edit' do
   @user = User.find(id: params[:id])
-  erb :'users/edit'
+  current_user
+  if @user.id == @current_user.id
+    erb :'users/edit'
+  else
+    ## unsure how to do this
+  end
 end
 
 
@@ -52,15 +57,12 @@ end
 
 put '/users/:id' do
   @user = User.find(id: params[:id])
-  if @user.id == current_user.id
-    if @user.update(params[:user])
-      erb :'/users/show', layout: false
-    else
-      @errors = @users.erros.full_messages
-      erb :'users/edit'
-    end
+  current_user
+  if @user.update(params[:user])
+    erb :'/users/show', layout: false
   else
-    @errors = 
+    @errors = @users.erros.full_messages
+    erb :'users/edit'
   end
 end
 
@@ -68,5 +70,5 @@ end
 
 
 delete '/users/:id' do
-
+  
 end
