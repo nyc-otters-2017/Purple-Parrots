@@ -1,3 +1,14 @@
+# THE PURPLE PARROTS
+## John Talio - The Green Monkey
+## Nick Himmel - The Red Jaguar
+## Jefferson Faseler = The Silver Snake
+
+![Olmec](/public/images/letsrock.png)
+Format: ![Legends of the Hidden Temple time](https://media.giphy.com/media/3o7ZeHcgOVi36JZtzG/giphy.gif)
+
+
+
+
 # DBC Sinatra Overflow
 
 ## Summary
