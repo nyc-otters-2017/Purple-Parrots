@@ -1,13 +1,21 @@
-<div class="display-questions-container">
-  <h2>All Questions</h2>
+<div class="container">
 
-  <ul>
+  <h2 class="questions_title">All Questions</h2>
+
     <% @questions.each do |question| %>
-      <li><a href="/questions/<%= question.id %>"><%= question.title %></a></li>
-      asked <%= "#{question.updated_at}" %> by <%= User.find(question.user_id).username %>
-      <br><br>
+    <article class="article">
+      <div class="count">
+        <span class="vote"> <%= question.votes.count %> <br> votes </span>
+        <span class="answer"> <%= question.answers.count %> <br> answers </span>
+      </div>
+      <div class="question">
+        <h3 class="question_title"><a href=""><%= question.title %></a></h3>
+        <span><%= question.question[0, 200] %>...</span>
+        <span class="time"> asked <%= pretty_time(question.created_at) %> </span>
+        <span class="user"> <%= User.find(question.user_id).username %> </span>
+      </div>
+     </article>
     <% end %>
-  <ul>
 
   <li><span>
     <a href="/questions/new">Ask a question</a>
