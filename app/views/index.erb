@@ -1,12 +1,17 @@
 <div class="container">
 
-  <h2>All Questions</h2>
+  <h2 id="all_questions">All Questions</h2>
     <% @questions.each do |question|%>
-      <article>
-        <span> <%= question.votes.count %> votes <span>
-        <span> <%= question.answers.count %> answers <span>
-        <h3><%= question.title %></h3>
-        <span><%= question.question[0, 200] %>...</h3>
+      <article class="article">
+        <div class="count">
+          <span class="vote"> <%= question.votes.count %> votes </span>
+          <span class="answer"> <%= question.answers.count %> answers </span>
+        </div>
+        <div class="question">
+          <h3 class="question_title"><%= question.title %></h3>
+          <span><%= question.question[0, 200] %>...</span>
+        </div>
        </article>
     <% end %>
+
 </div>
