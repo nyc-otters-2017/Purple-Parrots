@@ -1,5 +1,8 @@
 <h1>Update your profile</h1>
 <h3>Public information</h3>
+
+<%= erb :'/partial/_errors' %>
+
 <div class="edit-profile-container">
 <form class="edit-profile-form" action="/users/<%= @user.id %>" method="post">
   <input type="hidden" name="_method" value="put">
