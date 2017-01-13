@@ -6,7 +6,7 @@
       <% @users.each do |user| %>
         <li><%= user.username %></li>
         <li><%= user.answers.count %></li>
-        <li><%= user.created_at.strftime("%b %d '%y at %l:%M")  %></li>
+        <li><%= pretty_time(user.created_at)  %></li>
       <% end %>
   </ul>
 </div>
