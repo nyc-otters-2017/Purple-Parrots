@@ -5,3 +5,15 @@
     <% end %>
   </ul>
 <% end %>
+
+<% if @password_error %>
+  <ul>
+    <li><%= @password_error %></li>
+  </ul>
+<% end %>
+
+<% if @access_denied %>
+  <ul>
+    <li><%= @access_denied %></li>
+  </ul>
+<% end %>

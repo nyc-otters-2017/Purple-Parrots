@@ -15,7 +15,10 @@ end
 
 post '/users' do
   passwords_match?(params[:user][:password1], params[:user][:password2])
-  if @password
+  if @password == nil
+    @password_error = 'Please type in a valid email and matching passwords'
+    erb :'/users/new'
+  else
     @user = User.new(email: params[:user][:email], password: @password)
     if @user.save
       session[:user_id] = @user.id
@@ -24,8 +27,6 @@ post '/users' do
       @errors = @user.errors.full_messages
       erb :'/users/new'
     end
-  else
-    erb :'/users/new'
   end
 end
 
@@ -72,8 +73,8 @@ get '/users/:id/edit' do
   if @user.id == @current_user.id
     erb :'users/edit'
   else
-    status 422
-    redirect '/users'
+    @access_denied = 'That is not you. You do not have permission to do that'
+    erb :'/users/index'
   end
 end
 
