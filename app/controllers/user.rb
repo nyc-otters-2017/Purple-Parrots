@@ -4,10 +4,11 @@ end
 
 
 get '/users/new' do
-  if !current_user
-    erb :'/users/new'
-  else
+  current_user
+  if @current_user
     redirect '/'
+  else
+    erb :'/users/new'
   end
 end
 
@@ -57,15 +58,11 @@ get '/users/logout' do
 end
 
 
-
-
 get '/users/:id' do
   find_user(params[:id])
   email_hash(@user)
   erb :'users/show'
 end
-
-
 
 
 get '/users/:id/edit' do
@@ -84,17 +81,14 @@ end
 
 put '/users/:id' do
   find_user(params[:id])
-  if @user.update_attribute(:username, params[:username])
+  if @user.update(params[:user])
     email_hash(@user)
     erb :'/users/show'
   else
-    @errors = @users.errors.full_messages
+    @errors = @user.errors.full_messages
     erb :'users/edit'
   end
 end
-
-
-
 
 
 delete '/users/:id' do
