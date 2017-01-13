@@ -1,4 +1,16 @@
-<% @question.each do |q| %>
-  <% q.title %>
-  <% q.question %>
-<% end %>
+<div class="show-question">
+
+  <h2><%= @question.title %></h2>
+  <br>
+  <h4><%= @question.question %></h4>
+  <br><br>
+
+  <form id="answer-form" method="post" action="/questions/<%= @question.id %>/.....">
+      <p>We need your help! Parrot Outpouring depends on everyone sharing their knowledge, and that begins with you! If you're able to answer this question, please, grace us!</p>
+      <br><br>
+    <textarea name="answer" id="answer-input" class="answer-input" placeholder="Answer" rows="10" cols="70"></textarea>
+    <br>
+    <input type="submit" value="post answer">
+  </form>
+  
+</div>

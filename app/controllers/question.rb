@@ -21,7 +21,7 @@ post '/questions' do
   # binding.pry
   if @question.save
     status 200
-    redirect "/questions/#{question.id}"
+    redirect "/questions/#{@question.id}"
   else
     status 422
     redirect '/questions/new'
