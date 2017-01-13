@@ -21,10 +21,6 @@ post '/users' do
       session[:user_id] = @user.id
       erb :'/users/edit'
     else
-      status 422
-      error 422 do
-        'You broke it'
-      end
       @errors = @user.errors.full_messages
       erb :'/users/new'
     end
@@ -48,6 +44,8 @@ post '/users/login' do
   if @user && @user.authenticate(params[:password])
     session[:user_id] = @user.id
     redirect "/users/#{@user.id}"
+  elsif !@user
+    @errors = ['We could not log you in with that password and email']
   else
     @errors = @user.errors.full_messages
     erb :'users/login'
@@ -75,11 +73,7 @@ get '/users/:id/edit' do
     erb :'users/edit'
   else
     status 422
-    error 422 do
-      'Unauthorized request'
-    end
-    @errors = @user.errors.full_messages
-    erb :'users/edit'
+    redirect '/users'
   end
 end
 
