@@ -1,0 +1,12 @@
+<div class="post-question-container"
+  <article id="<%= @question.id %>">
+
+    <form method="post" action="/questions/<%= @question.id %>" class="post-question-form"
+      <textarea rows="4" cols="10">
+        What is your question?
+      </textarea>
+      <input type="submit" value="post question">
+    </form>
+
+  </article>
+</div>
