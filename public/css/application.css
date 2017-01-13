@@ -1,5 +1,6 @@
 body {
   font-family: 'Nunito Sans', sans-serif;
+  font-size: 1em;
 }
 
 h1 {
@@ -25,7 +26,7 @@ ul {
 }
 
 #nav_bar {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   position: relative;
   height: 30px;
   background-color: #FFFF60;
@@ -34,11 +35,33 @@ ul {
 #nav_links {
   position: absolute;
   margin-top: 3px;
-  margin-right: 10px;
+  margin-right: 25px;
   right: 0;
 }
 
 #nav_links li{
-  margin: 5px;
+  margin: 10px;
   display: inline;
+  font-size: .95em;
+}
+
+#title_bar {
+    position: relative;
+    height: 50px;
+    margin: 0 25px;
+}
+
+#title {
+  position: absolute;
+}
+
+#buttons {
+  position: absolute;
+  right: 0;
+}
+
+#buttons li{
+  margin: 10px;
+  display: inline;
+  right: 0;
 }
