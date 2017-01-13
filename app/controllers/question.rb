@@ -17,7 +17,8 @@ get '/questions/new' do
 end
 
 post '/questions' do
-  @question = Question.create( title: params[:title], question: params[:question] )
+  @question = Question.new( title: params[:title], question: params[:question] )
+  # binding.pry
   if @question.save
     status 200
     redirect "/questions/#{question.id}"
