@@ -1,8 +1,15 @@
 <div class="profile-container">
-
   <svg id="profile-picture" width="80" height="80" data-jdenticon-hash="<%= @hash %>"></svg>
-
-<%= @user.username %>
-
-<a href="/users/<%= @user.id %>/edit">click here to edit</a>
+<ul>
+  <li><%= @user.username %></li>
+  <li>Title: <%= @user.title %></li>
+  <li>Location: <%= @user.location %></li>
+  <li><%= @user.votes.count %></li>
+  <% current_user ? link = 'edit' : link = 'no link' %>
+  <% if link == 'edit' %>
+    <li><a href="/users/<%= @user.id %>/edit">click here to edit</a></li>
+  <% end %>
+  <li>About me:</li>
+  <li><p><%= @user.about_me %></p></li>
+</ul>
 </div>

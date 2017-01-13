@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates :username, :email, :password, presence: true
   validates :email, uniqueness: true
   validates :about_me, length: {maximum: 500}
-  validates :username, length: {in: 6..10}
+  validates :username, length: {in: 6..20}
   validates :location, length: {maximum: 40}
   validates :title, length: {maximum: 30}
   validate :strong_password
