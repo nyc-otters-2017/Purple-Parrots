@@ -8,7 +8,7 @@
           <span class="answer"> <%= question.answers.count %> <br> answers </span>
         </div>
         <div class="question">
-          <h3 class="question_title"><%= question.title %></h3>
+          <h3 class="question_title"><a href=""><%= question.title %></a></h3>
           <span><%= question.question[0, 200] %>...</span>
           <span class="time"> asked <%= pretty_time(question.created_at) %> </span>
           <span class="user"> <%= User.find(question.user_id).username %> </span>
