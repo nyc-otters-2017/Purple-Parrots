@@ -1,0 +1,16 @@
+<div class="display-questions-container">
+  <h2>All Questions</h2>
+
+  <ul>
+    <% @questions.each do |question| %>
+      <li><a href="/questions/<%= question.id %>"><%= question.title %></a></li>
+      asked <%= "#{question.updated_at}" %> by <%= User.find(question.user_id).username %>
+      <br><br>
+    <% end %>
+  <ul>
+
+  <li><span>
+    <a href="/questions/new">Ask a question</a>
+  </li></span>
+
+</div>

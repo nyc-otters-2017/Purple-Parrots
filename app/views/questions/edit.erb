@@ -1,0 +1,13 @@
+  <div class="question-editor-container">
+
+    <h2>Fix That Question!</h2>
+      <form method="post" action="/questions/<%= @question.id %>" class="edit-question-form">
+        <input type="hidden" name="_method" value="put">
+        <input name="title" type="text" id="edit-title-input" class="edit-title-input" placeholder="Title"></input>
+        <br><br>
+        <textarea name="question" id="edit-question-input" class="edit-question-input" placeholder="Question" rows="10" cols="70"></textarea>
+        <br>
+        <input type="submit" value="post question">
+      </form>
+
+  </div>
