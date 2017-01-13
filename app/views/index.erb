@@ -1,5 +1,12 @@
 <div>
 
   <h2>All Questions</h2>
-    <% @questions.each %>
+    <% @questions.each do |question|%>
+      <article>
+        <span>votes<span>
+        <span>answers<span>
+        <h3><%= question.title %></h3>
+        <span><%= question.question[0, 200] %>...</h3>
+       </article>
+    <% end %>
 </div>
