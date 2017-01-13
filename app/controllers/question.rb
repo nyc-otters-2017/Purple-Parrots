@@ -31,7 +31,7 @@ end
 
 get '/questions/:id' do
   @question = Question.find(params[:id])
-
+  @comments = Comment.all
   erb :'/questions/show'
 end
 
