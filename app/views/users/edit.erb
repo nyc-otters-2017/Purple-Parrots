@@ -2,7 +2,7 @@
 <h3>Public information</h3>
 <div class="edit-profile-container">
 <form class="edit-profile-form" action="/users/<%= @user.id %>" method="post">
-  <form class="hidden" action="_method" method="put">
+  <input type="hidden" name="_method" value="put">
     <label for="username">Display name</label>
     <input type="text" name="username" value="<%= @user.username %>">
     <label for="location">Location (it won't save yet :p)</label>

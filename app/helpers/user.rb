@@ -10,3 +10,8 @@ end
 def find_user(id)
   @user = User.find(id)
 end
+
+
+def email_hash(user)
+  @hash = Digest::MD5.hexdigest(@user.email.downcase)
+end

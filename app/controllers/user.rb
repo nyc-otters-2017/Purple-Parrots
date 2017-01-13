@@ -6,11 +6,11 @@ end
 
 
 get '/users/new' do
-  # if current_user
-  #   redirect '/'
-  # else
+  if !current_user
     erb :'/users/new'
-  # end
+  else
+    redirect '/'
+  end
 end
 
 
@@ -19,11 +19,15 @@ end
 post '/users' do
   passwords_match?(params[:user][:password1], params[:user][:password2])
   if @password
-    @user = User.new(email: params[:email], password: @password)
+    @user = User.new(email: params[:user][:email], password: @password)
     if @user.save
-      erb :"/users/edit"
+      session[:user_id] = @user.id
+      erb :'/users/edit'
     else
-      ##error handling
+      status 422
+      error 422 do
+        'You broke it'
+      end
     end
   else
     erb :'/users/new'
@@ -54,6 +58,7 @@ end
 
 get '/users/:id' do
   find_user(params[:id])
+  email_hash(@user)
   erb :'users/show'
 end
 
@@ -61,28 +66,30 @@ end
 
 
 get '/users/:id/edit' do
-  find_user(params[:id])
-  current_user
-  # if @user.id == @current_user.id
+  @user = find_user(params[:id])
+  @current_user = current_user
+  if @user.id == @current_user.id
     erb :'users/edit'
-  # else
-    ## unsure how to do this
-  # end
+  else
+    status 422
+    error 422 do
+      'Unauthorized request'
+    end
+  end
 end
-
-
 
 
 put '/users/:id' do
   find_user(params[:id])
-  current_user
-  if @user.update(params[:user])
+  if @user.update_attribute(:username, params[:username])
+    email_hash(@user)
     erb :'/users/show', layout: false
   else
-    @errors = @users.erros.full_messages
+    @errors = @users.errors.full_messages
     erb :'users/edit'
   end
 end
+
 
 
 
