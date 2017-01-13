@@ -4,28 +4,20 @@
 <form class="edit-profile-form" action="/users/<%= @user.id %>" method="post">
   <input type="hidden" name="_method" value="put">
     <label for="username">Display name</label>
-    <input type="text" name="username" value="<%= @user.username %>">
-    <label for="location">Location (it won't save yet :p)</label>
-    <input type="text" name="location" placeholder="Enter a location">
-    <label for="title">Title (nor will this)</label>
-    <input type="text" name="title" placeholder="No title has been set">
+    <input type="text" name="user[username]" value="<%= @user.username %>">
+    <label for="location">Location</label>
+    <input type="text" name="user[location]" placeholder="Enter a location">
+    <label for="title">Title</label>
+    <input type="text" name="user[title]" placeholder="No title has been set">
+</div>
+
+<h3>About me</h3>
+<div class="about-me-container">
+    <textarea name="user[about_me]" rows="10" cols="90" class="about-me-text"
+    placeholder="You don't have to be too mysterious. Let people know about you."></textarea>
+    <label for="password">Password:</label>
+    <input type="password" name="user[password]">
     <input type="submit" name="submit" value="Update">
   </form>
 </form>
-
-<h3>About me</h3>
-<p>Definitely not this</p>
-<div class="about-me-container">
-  <form class="about-me-form" action="" method="post">
-    <textarea name="aboutme" rows="10" cols="90" class="about-me-text"
-    placeholder='BY DAY: Alt-Rock Ninja Cowgirl at Veridian Dynamics.
-
-BY NIGHT: I write code and code rights for penalcoders.example.org, an awesome non-profit
-that will totally take your monay at that link. My kidss are cuter than yours.
-
-FOR FUN: C+ Jokes, Segway Roller Derby, NYT Sat. Crosswords (in Sharpie!), Ostrich Grooming.
-
-"If you see scary things, look for the helpers-you&#39;ll always see people helping."-Fred Rogers'></textarea>
-    <input type="submit" name="submit" value="Update">
-  </form>
 </div>
