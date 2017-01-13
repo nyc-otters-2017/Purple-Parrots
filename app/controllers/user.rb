@@ -3,8 +3,6 @@ get '/users' do
 end
 
 
-
-
 get '/users/new' do
   if !current_user
     erb :'/users/new'
@@ -12,8 +10,6 @@ get '/users/new' do
     redirect '/'
   end
 end
-
-
 
 
 post '/users' do
@@ -35,8 +31,6 @@ post '/users' do
 end
 
 
-
-
 get '/users/login' do
   if current_user
     redirect '/'
@@ -46,6 +40,15 @@ get '/users/login' do
 end
 
 
+post '/users/login' do
+  @user = User.find_by(email: params[:email])
+  if @user && @user.authenticate(params[:password])
+    session[:user_id] = @user.id
+    redirect "/users/#{@user.id}"
+  else
+    erb :'users/login'
+  end
+end
 
 
 get '/users/logout' do
@@ -83,7 +86,7 @@ put '/users/:id' do
   find_user(params[:id])
   if @user.update_attribute(:username, params[:username])
     email_hash(@user)
-    erb :'/users/show', layout: false
+    erb :'/users/show'
   else
     @errors = @users.errors.full_messages
     erb :'users/edit'
