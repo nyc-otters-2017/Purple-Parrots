@@ -11,6 +11,9 @@
       <input type="submit" value="post comment">
     </form>
     <ul class="comment-list">
+      <% @comments.each do |comment| %>
+      <li><%= comment.comment %></li>
+      <% end %>
     </ul>
   </div>
 
