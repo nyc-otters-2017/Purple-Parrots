@@ -6,11 +6,11 @@ end
 
 
 get '/users/new' do
-  if current_user
-    redirect '/'
-  else
+  # if current_user
+  #   redirect '/'
+  # else
     erb :'/users/new'
-  end
+  # end
 end
 
 
@@ -19,8 +19,12 @@ end
 post '/users' do
   passwords_match?(params[:user][:password1], params[:user][:password2])
   if @password
-    @user = User.find_by(email: params[:email], password: @password)
-    redirect "/users/#{@user.id}"
+    @user = User.new(email: params[:email], password: @password)
+    if @user.save
+      erb :"/users/edit"
+    else
+      ##error handling
+    end
   else
     erb :'/users/new'
   end
