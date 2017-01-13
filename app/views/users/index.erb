@@ -1,12 +1,16 @@
+<%= erb :'/partial/_errors' %>
+
 <h2>Users</h2>
 
 <div class="users-container">
   <ul>
     <% @users = User.all %>
       <% @users.each do |user| %>
-        <li><%= user.username %></li>
-        <li><%= user.answers.count %></li>
+        <li><a href="/users/<%= user.id %>"><%= user.username %></a></li>
+        <li>Questions answered: <%= user.answers.count %></li>
+        <li>  <svg id="profile-picture" width="80" height="80" data-jdenticon-hash="<%= email_hash(user) %>"></svg></li>
         <li><%= pretty_time(user.created_at)  %></li>
+
       <% end %>
   </ul>
 </div>

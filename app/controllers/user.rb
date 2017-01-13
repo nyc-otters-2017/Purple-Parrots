@@ -15,19 +15,18 @@ end
 
 post '/users' do
   passwords_match?(params[:user][:password1], params[:user][:password2])
-  if @password
+  if @password == nil
+    @password_error = 'Please type in a valid email and matching passwords'
+    erb :'/users/new'
+  else
     @user = User.new(email: params[:user][:email], password: @password)
     if @user.save
       session[:user_id] = @user.id
       erb :'/users/edit'
     else
-      status 422
-      error 422 do
-        'You broke it'
-      end
+      @errors = @user.errors.full_messages
+      erb :'/users/new'
     end
-  else
-    erb :'/users/new'
   end
 end
 
@@ -46,7 +45,10 @@ post '/users/login' do
   if @user && @user.authenticate(params[:password])
     session[:user_id] = @user.id
     redirect "/users/#{@user.id}"
+  elsif !@user
+    @errors = ['We could not log you in with that password and email']
   else
+    @errors = @user.errors.full_messages
     erb :'users/login'
   end
 end
@@ -71,10 +73,8 @@ get '/users/:id/edit' do
   if @user.id == @current_user.id
     erb :'users/edit'
   else
-    status 422
-    error 422 do
-      'Unauthorized request'
-    end
+    @access_denied = 'That is not you. You do not have permission to do that'
+    erb :'/users/index'
   end
 end
 
