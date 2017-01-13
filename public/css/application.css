@@ -73,7 +73,6 @@ ul {
 #buttons li{
   display: inline-block;
   right: 0;
-
 }
 
 .questions_title {
@@ -160,4 +159,44 @@ ul {
 
 .user {
   color: #7F3FBF;
+}
+
+@media (max-width: 549px) {
+  #title {
+    position: relative;;
+  }
+
+  #buttons {
+    left: 0;
+    padding: 0;
+    margin: 10px 0;
+  }
+
+  .button_links {
+    margin: 10px 0;
+    font-size: .9em;
+    padding: 2px 2px;
+    width: 50%;
+  }
+
+  .questions_title {
+    display: block;
+    margin-top: 50px;
+  }
+
+  .count{
+    width: 25%;
+    float: left;
+    font-weight: 700;
+    font-size: .9em;
+    text-align: center;
+    margin-right: 25px;
+  }
+
+  .question{
+    width: 50%;
+    margin-top: 1px;
+    font-size: .8em;
+  }
+
 }
