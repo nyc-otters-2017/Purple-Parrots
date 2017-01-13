@@ -61,13 +61,13 @@ end
 
 
 get '/users/:id/edit' do
-  @user = User.find(id: params[:id])
+  @user = User.find(params[:id])
   current_user
-  if @user.id == @current_user.id
+  # if @user.id == @current_user.id
     erb :'users/edit'
-  else
+  # else
     ## unsure how to do this
-  end
+  # end
 end
 
 
