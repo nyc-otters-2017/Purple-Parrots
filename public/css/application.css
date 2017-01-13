@@ -1,9 +1,44 @@
 body {
   font-family: 'Nunito Sans', sans-serif;
-  margin: 10px;
 }
 
 h1 {
+  margin: 0;
   font-weight: 400;
   font-size: 1.7em;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+    color: #7F3FBF;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  margin: 0;
+}
+
+#nav_bar {
+  margin-bottom: 10px;
+  position: relative;
+  height: 30px;
+  background-color: #FFFF60;
+}
+
+#nav_links {
+  position: absolute;
+  margin-top: 3px;
+  margin-right: 10px;
+  right: 0;
+}
+
+#nav_links li{
+  margin: 5px;
+  display: inline;
 }
