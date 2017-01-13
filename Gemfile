@@ -18,6 +18,8 @@ gem 'bcrypt'
 
 gem 'shotgun'
 
+gem 'avatar'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'

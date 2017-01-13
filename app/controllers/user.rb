@@ -53,7 +53,7 @@ end
 
 
 get '/users/:id' do
-  @user = User.find(id: params[:id])
+  find_user(params[:id])
   erb :'users/show'
 end
 
@@ -61,7 +61,7 @@ end
 
 
 get '/users/:id/edit' do
-  @user = User.find(params[:id])
+  find_user(params[:id])
   current_user
   # if @user.id == @current_user.id
     erb :'users/edit'
@@ -74,7 +74,7 @@ end
 
 
 put '/users/:id' do
-  @user = User.find(id: params[:id])
+  find_user(params[:id])
   current_user
   if @user.update(params[:user])
     erb :'/users/show', layout: false

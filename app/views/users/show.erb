@@ -1,0 +1,12 @@
+<div class="profile-container">
+
+<%= @user.username %>
+
+<a href="/users/<%= @user.id %>/edit">click here to edit</a>
+</div>
+
+
+<% email = @user.email.downcase %>
+<% hash = Digest::MD5.hexdigest(email) %>
+<% image_src = "https://www.gravatar.com/avatar/#{hash}d=retro" %>
+<img src="<%= image_src %>" alt="">
