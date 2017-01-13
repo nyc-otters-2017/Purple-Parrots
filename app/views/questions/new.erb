@@ -2,9 +2,9 @@
 
   <h2>What's up?</h2>
     <form method="post" action="/questions" class="new-question-form">
-      <input type="text" id="title-input" class="title-input" placeholder="Title"></input>
+      <input name="title" type="text" id="title-input" class="title-input" placeholder="Title"></input>
       <br><br>
-      <textarea id="question-input" class="question-input" placeholder="Question" rows="10" cols="40"></textarea>
+      <textarea name="question" id="question-input" class="question-input" placeholder="Question" rows="10" cols="40"></textarea>
       <br>
       <input type="submit" value="post question">
     </form>
