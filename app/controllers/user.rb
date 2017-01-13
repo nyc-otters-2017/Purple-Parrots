@@ -25,6 +25,8 @@ post '/users' do
       error 422 do
         'You broke it'
       end
+      @errors = @user.errors.full_messages
+      erb :'/users/new'
     end
   else
     erb :'/users/new'
@@ -47,6 +49,7 @@ post '/users/login' do
     session[:user_id] = @user.id
     redirect "/users/#{@user.id}"
   else
+    @errors = @user.errors.full_messages
     erb :'users/login'
   end
 end
@@ -75,6 +78,8 @@ get '/users/:id/edit' do
     error 422 do
       'Unauthorized request'
     end
+    @errors = @user.errors.full_messages
+    erb :'users/edit'
   end
 end
 
