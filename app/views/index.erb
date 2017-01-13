@@ -1,7 +1,8 @@
 <div class="container">
 
-  <h2 id="all_questions">All Questions</h2>
+  <h2 class="questions_title">Unanswered Questions</h2>
     <% @questions.each do |question|%>
+    <% if question.votes.count == 0 %>
       <article class="article">
         <div class="count">
           <span class="vote"> <%= question.votes.count %> <br> votes </span>
@@ -14,6 +15,7 @@
           <span class="user"> <%= User.find(question.user_id).username %> </span>
         </div>
        </article>
+       <% end %>
     <% end %>
 
 </div>

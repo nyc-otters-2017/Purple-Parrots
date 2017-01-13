@@ -76,7 +76,7 @@ ul {
 
 }
 
-#all_questions {
+.questions_title {
   font-variant: small-caps;
   padding-bottom: 5px;
   border-bottom:  2px solid #7F3FBF;
