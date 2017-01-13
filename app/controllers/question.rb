@@ -7,7 +7,7 @@ get '/questions' do
 end
 
 get '/questions/new' do
-  # may need current_user to persist question once posted
+  # must be current_user to persist question once posted
   erb :'/questions/new'
   # this page should contain the question form
 
@@ -18,7 +18,6 @@ end
 
 post '/questions' do
   @question = Question.new( title: params[:title], question: params[:question] )
-  # binding.pry
   if @question.save
     status 200
     redirect "/questions/#{@question.id}"
@@ -29,17 +28,29 @@ post '/questions' do
   # this page should post the question
 end
 
-# get '/questions/:id/edit' do
-#   question = Question.find(params[:id])
-#
-#   erb :'questions/edit'
-# end
 
 get '/questions/:id' do
   @question = Question.find(params[:id])
 
   erb :'/questions/show'
 end
+
+
+get '/questions/:id/edit' do
+  # must be current_user to locate specific user's question - need user_id
+  @question = Question.find(params[:id])
+
+  erb :'questions/edit'
+end
+
+
+put '/questions/:id' do
+  @question = Question.find(params[:id])
+  @question.update( title: params[:title], question: params[:question] )
+
+  erb :'/questions/show'
+end
+
 
 delete '/questions/:id' do
   # id of question must match the id of the user deleting
