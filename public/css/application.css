@@ -30,15 +30,15 @@ ul {
 
 #nav_links {
   position: absolute;
-  margin-top: 3px;
-  margin-right: 25px;
+  margin-top: 4px;
+  margin-right: 40px;
   right: 0;
 }
 
 #nav_links li{
   margin: 10px;
   display: inline;
-  font-size: .95em;
+  font-size: .93em;
 }
 
 #title_bar {
@@ -68,13 +68,15 @@ ul {
   margin-right: 25px;
   padding-bottom: 5px;
   border-bottom:  2px solid #7F3FBF;
+  font-size: 1.5em;
 }
 
 .button_links {
-    padding: 10px;
+    padding: 5px 10px;
     width: 50px;
     background-color: #7F3FBF;
     color: white;
+    font-size: .85em;
 }
 
 .button_links.visited {
@@ -90,36 +92,49 @@ ul {
   padding-bottom: 20px;
   overflow: hidden;
   float: left;
-  width: 728px;
+  width: 100%;
   border-bottom:  1px solid #7F3FBF;
 }
 
 .count{
-  width: 78px;
+  width: 15%;
   float: left;
+  font-weight: 700;
   text-align: center;
   margin-right: 20px;
 }
 
 .vote {
+  padding: 15px;
   display: block;
   font-variant: small-caps;
 }
 
 .answer {
+  padding: 15px;
   display: block;
   font-variant: small-caps;
 }
 
 .question{
   float: left;
-  width: 630px;
+  width: 75%;
+  margin-top: 16px;
 }
 
 .question_title {
   margin: 0;
   font-weight: 600;
   text-transform: uppercase;
+  color: #7F3FBF;
+  padding-bottom: 10px;
+}
+
+.time {
+  font-size: .9em;
+}
+
+.user {
   color: #7F3FBF;
 }
 

@@ -4,12 +4,14 @@
     <% @questions.each do |question|%>
       <article class="article">
         <div class="count">
-          <span class="vote"> <%= question.votes.count %> votes </span>
-          <span class="answer"> <%= question.answers.count %> answers </span>
+          <span class="vote"> <%= question.votes.count %> <br> votes </span>
+          <span class="answer"> <%= question.answers.count %> <br> answers </span>
         </div>
         <div class="question">
           <h3 class="question_title"><%= question.title %></h3>
           <span><%= question.question[0, 200] %>...</span>
+          <span class="time"> asked <%= pretty_time(question.created_at) %> </span>
+          <span class="user"> <%= User.find(question.user_id).username %> </span>
         </div>
        </article>
     <% end %>
