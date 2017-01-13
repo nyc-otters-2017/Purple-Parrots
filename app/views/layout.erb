@@ -15,7 +15,7 @@
       <ul id="nav_links">
       <% current_user %>>
       <% if @current_user %>
-        <li><a href="/users/<% @current_user.id %>"> <%= @current_user.username %> </a></li>
+        <li><a href="/users/<%= @current_user.id %>"> <%= @current_user.username %> </a></li>
         <li><a href="/users/logout"> Log Out </></li>
       <% else %>
         <li><a href="/users/new">Sign Up</a></li>
