@@ -22,7 +22,7 @@
     <% if current_user %>
      <form id="comments-for-questions" method="post" action="/questions/<%= @question.id %>/comment">
        <label for="comment">Add a comment</label>
-       <input id="q-comment" type="text" name="comment">
+       <input class="comment" type="text" name="comment">
        <input type="submit" value="post comment">
      </form>
     <% end %>

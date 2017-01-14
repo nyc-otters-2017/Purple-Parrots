@@ -27,7 +27,7 @@ $(document).ready(function(){
       data: data
     }).success(function(response) {
       $("#question-comments").append(response);
-      $("#q-comment").val('');
+      $(".comment").val('');
     })
   })
 
