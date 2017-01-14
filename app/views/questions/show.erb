@@ -3,11 +3,9 @@
   <div>
     <form method="post" action="/questions/<%= @question.id %>/upvote" class="upvote-inline">
       <button type="submit" id="vote-up" name="upvote" value="" class="upvote-button">&#8679;
-      <!-- <span><a href="">&#8679;</a></span> -->
     </form>
 
     <form method="post" action="/questions/<%= @question.id %>/downvote" class="downvote-inline">
-      <!-- <span><a href="">&#8681;</a></span> -->
       <button type="submit" id="vote-down" name="downvote" value="" class="downvote-button">&#8681;
     </form>
   </div>
