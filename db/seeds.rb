@@ -1,12 +1,12 @@
-user_one = User.create(username: "test", email: "test1@test.com", password: "12345")
+user_one = User.create(username: "test", email: "abc@123", password: "PASSword99!")
 
-user_two = User.create(username: "test2", email: "test2@test.com", password: "12345")
+user_three = User.create(email: "dbc3@dbc.com", password: "PASSword99!")
 
-user_three = User.create(username: "test3", email: "test3@test.com", password: "12345")
+user_two = User.create(username: "Silver Snake", email: "test2@dbc.com", password: "PASSword99!")
 
-user_four = User.create(username: "test4", email: "test4@test.com", password: "12345")
+user_four = User.create(username: "Red Jaguar", email: "dbc4@dbc.com", password: "PASSword99!")
 
-user_five = User.create(username: "test5", email: "test5@test.com", password: "12345")
+user_five = User.create(username: "Green Monkey", email: "dbc5@dbc.com", password: "PASSword99!")
 
 question_one = Question.create(title: "This is my question", question: "User experience iteration low hanging fruit hypotheses stock. Marketing customer iPad holy grail seed round alpha funding churn rate pitch return on investment bootstrapping rockstar. Termsheet social media investor strategy virality series A financing. Market return on investment stealth ecosystem rockstar facebook gen-z holy grail virality business-to-consumer founders network effects user experience. Branding business model canvas rockstar. Seed round launch party startup user experience pitch handshake gamification non-disclosure agreement paradigm shift validation. Android creative alpha non-disclosure agreement iPhone series A financing long tail termsheet business plan A/B testing business-to-business. User experience business model canvas stock backing learning curve agile development leverage seed round launch party hypotheses. Branding ownership leverage. Ownership startup iteration scrum project return on investment sales seed money android social media innovator direct mailing hypotheses ramen.", user_id: 1)
 
@@ -16,15 +16,13 @@ question_three = Question.create(title: "This is MY question", question: "Iterat
 
 question_four = Question.create(title: "This is the last question", question: "Infographic buzz beta early adopters conversion return on investment user experience prototype backing market. Seed money deployment vesting period funding handshake partner network advisor bootstrapping. Innovator marketing success android conversion vesting period holy grail. Low hanging fruit market advisor research & development growth hacking supply chain early adopters social media seed round paradigm shift. Twitter social media growth hacking iPhone stock investor value proposition non-disclosure agreement. Prototype value proposition graphical user interface social proof paradigm shift influencer success launch party non-disclosure agreement facebook vesting period pitch. Validation interaction design market angel investor early adopters partnership funding success partner network equity focus release ownership. Long tail focus iPad. Business plan disruptive iPhone founders research & development user experience market buzz paradigm shift. Startup conversion sales virality early adopters ownership.", user_id: 5)
 
-Answer.create(answer: "This is my answer", user_id: 1, question_id: 1)
+answer_one = Answer.create(answer: "This is my answer", user_id: 1, question_id: 1)
 
-Answer.create(answer: "This is my second answer", user_id: 2, question_id: 1)
+answer_two = Answer.create(answer: "This is my second answer", user_id: 2, question_id: 2)
 
-Answer.create(answer: "THIS IS MY answer", user_id: 2, question_id: 2)
+answer_three = Answer.create(answer: "THIS IS MY answer", user_id: 2, question_id: 3)
 
-Answer.create(answer: "This is MY answer", user_id: 1, question_id: 3)
-
-User.last.comments.create(comment: "hi", user_id: 1)
+answer_four = Answer.create(answer: "This is MY answer", user_id: 1, question_id: 4)
 
 question_one.votes.create(votable_id: "1", votable_type: question_one, user_id: 1)
 question_one.votes.create(votable_id: "1", votable_type: question_one, user_id: 2)
@@ -38,3 +36,13 @@ question_two.votes.create(votable_id: "2", votable_type: question_two, user_id: 
 question_three.votes.create(votable_id: "3", votable_type: question_three, user_id: 2)
 question_three.votes.create(votable_id: "3", votable_type: question_three, user_id: 3)
 question_three.votes.create(votable_id: "3", votable_type: question_three, user_id: 5)
+
+
+question_one.comments.create(comment: "Great question", commentable_id: "1", commentable_type: question_one, user_id: 1)
+question_two.comments.create(comment: "Please Explain More", commentable_id: "2", commentable_type: question_two, user_id: 2)
+question_three.comments.create(comment: "Have you tried restarting your computer", commentable_id: "3", commentable_type: question_three, user_id: 3)
+question_four.comments.create(comment: "Have you googled it", commentable_id: "4", commentable_type: question_four, user_id: 4)
+answer_one.comments.create(comment: "Thanks that was super helpful!", commentable_id: "1", commentable_type: answer_one, user_id: 1)
+answer_two.comments.create(comment: "I don't have that version", commentable_id: "2", commentable_type: answer_two, user_id: 2)
+answer_three.comments.create(comment: "Wow I hadn't thought of it that way, mind blown!", commentable_id: "3", commentable_type: answer_three, user_id: 2)
+answer_four.comments.create(comment: "Smart! You really know your stuff!", commentable_id: "4", commentable_type: answer_four, user_id: 5)

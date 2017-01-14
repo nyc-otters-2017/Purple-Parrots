@@ -1,5 +1,8 @@
 <h1>Update your profile</h1>
 <h3>Public information</h3>
+
+<%= erb :'/partial/_errors' %>
+
 <div class="edit-profile-container">
 <form class="edit-profile-form" action="/users/<%= @user.id %>" method="post">
   <input type="hidden" name="_method" value="put">
@@ -15,6 +18,8 @@
 <div class="about-me-container">
     <textarea name="user[about_me]" rows="10" cols="90" class="about-me-text"
     placeholder="You don't have to be too mysterious. Let people know about you."></textarea>
+    <br>
+    <p>Re-enter your password for verification</p>
     <label for="password">Password:</label>
     <input type="password" name="user[password]">
     <input type="submit" name="submit" value="Update">

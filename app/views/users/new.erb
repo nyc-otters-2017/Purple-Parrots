@@ -1,4 +1,5 @@
 <div class="new-user-container">
+
   <form class="new-user-form" action="/users" method="post">
     <label for="user[email]">Email:</label>
     <input type="email" name="user[email]" placeholder="email" class="email">
@@ -8,4 +9,7 @@
     <input type="password" name="user[password2]" placeholder="password" class="password">
     <input type="submit" name="submit" value="Register">
   </form>
+
+  <%= erb :'/partial/_errors' %>
+
 </div>
