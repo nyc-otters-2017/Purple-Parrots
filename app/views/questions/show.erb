@@ -1,10 +1,17 @@
 <div class="show-question">
 
   <div>
-    <span><a href="">&#8679;</a></span>
-    <span><%= @question.votes.count %></span>
-    <span><a href="">&#8681;</a></span>
+    <form method="post" action="/questions/<%= @question.id %>/upvote" class="upvote-inline">
+      <button type="submit" id="vote-up" name="upvote" value="" class="upvote-button">&#8679;
+      <!-- <span><a href="">&#8679;</a></span> -->
+    </form>
+
+    <form method="post" action="/questions/<%= @question.id %>/downvote" class="downvote-inline">
+      <!-- <span><a href="">&#8681;</a></span> -->
+      <button type="submit" id="vote-down" name="downvote" value="" class="downvote-button">&#8681;
+    </form>
   </div>
+  <span id="votes-counter"><%= @question.votes.count %> Votes</span>
 
   <h2 class="questions_title"><%= @question.title %></h2>
 
@@ -50,7 +57,7 @@
 
   <br>
 
-  <form id="answer-form" method="post" action="/questions/<%= Answer.last.id %>/answer">
+  <form id="answer-form" method="post" action="/questions/<%= @question.id %>/answer">
     <p>We need your help! Kernel Panic depends on everyone sharing their knowledge, and that begins with you! If you're able to answer this question, please, grace us!</p>
     <br><br>
     <textarea name="answer" id="answer-input" class="answer-input" placeholder="Answer" rows="10" cols="70"></textarea>
