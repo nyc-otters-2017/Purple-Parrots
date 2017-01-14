@@ -21,6 +21,14 @@ ul {
   margin: 0;
 }
 
+input[type=submit] {
+  border: none;
+  font-weight: 600;
+  color: white;
+  background-color: #7F3FBF;
+  font-size: .9em;
+}
+
 #nav_bar {
   margin-bottom: 20px;
   position: relative;
@@ -186,14 +194,6 @@ ul {
 
 .login-submit {
   margin: 10px;
-}
-
-.login-submit input {
-  border: none;
-  font-weight: 600;
-  color: white;
-  background-color: #7F3FBF;
-  font-size: .9em;
 }
 
 .login-submit input:hover {
