@@ -65,8 +65,14 @@ delete '/questions/:id' do
   end
 end
 
-post '/questions/:id/comment/new' do
+post '/questions/:id/comment/' do
   question = Question.find(params[:id])
   @question_comment = question.comments.create(comment: params[:comment], commentable_id: question.id, commentable_type: question, user_id: current_user.id)
+  redirect :"/questions/#{params[:id]}"
+end
+
+post 'questions/answers/:id/comment/' do
+  answer = Answer.find(params[:id])
+  @answer_comment = Answer.comments.create(comment: params[:comment], commentable_id: question.id, commentable_type: answer, user_id: current_user.id)
   redirect :"/questions/#{params[:id]}"
 end
