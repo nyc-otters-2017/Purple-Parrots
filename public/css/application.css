@@ -65,8 +65,15 @@ input[type=submit] {
   margin: 0 25px;
 }
 
+#logo {
+  width: 45px;
+  display: inline;
+  margin-right: 3px;
+}
 #title {
+  margin-top: 6px;
   position: absolute;
+  display: inline;
 }
 
 #title a{
@@ -182,6 +189,13 @@ input[type=submit] {
   font-weight: 600;
 }
 
+.new-container {
+  border: solid black .1px;
+  width: 250px;
+  height: 225px;
+  font-size: .98em;
+  font-weight: 600;
+}
 
 .login-email {
   width: 50%;
@@ -204,7 +218,6 @@ input[type=submit] {
   width: 100%;
   border-bottom:  1px solid #7F3FBF;
 }
-
 
 .users-container {
   margin-left: 5px;
@@ -322,6 +335,11 @@ li.user-info {
 }
 
 @media (max-width: 549px) {
+
+  #logo {
+    display: none;
+  }
+
   #title {
     position: relative;;
   }
@@ -330,6 +348,10 @@ li.user-info {
     left: 0;
     padding: 0;
     margin: 10px 0;
+  }
+
+  #title_bar {
+    margin: 10px;
   }
 
   .main {
@@ -378,6 +400,10 @@ li.user-info {
 
   .about-me {
     font-size: 1em;
+  }
+
+  .questions_title {
+    font-size: 1.4em;
   }
 
 }
