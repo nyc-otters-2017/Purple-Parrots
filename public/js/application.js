@@ -16,6 +16,18 @@ $(document).ready(function(){
     });
   });
 
-
+  $("#comment").on("submit", function(event) {
+    event.preventDefault();
+    var type = $(event.target).attr("method")
+    var url = $(event.target).attr("action")
+    var data = $(event.target).serialize();
+    $.ajax({
+      type: type,
+      url: url,
+      data: data
+    }).success(function(response) {
+      $("#question-comments").append(response);
+    })
+  })
 
 });

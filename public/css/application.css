@@ -75,6 +75,10 @@ ul {
   right: 0;
 }
 
+.main {
+  margin: 25px;
+}
+
 .questions_title {
   font-variant: small-caps;
   padding-bottom: 5px;
@@ -170,6 +174,10 @@ ul {
     left: 0;
     padding: 0;
     margin: 10px 0;
+  }
+
+  .main {
+    margin: 0;
   }
 
   .button_links {

@@ -12,15 +12,8 @@
       <input type="submit" value="post comment">
     </form>
     <% end %>
-    <div class="comment-list">
-      <article
-        <br>
-        <% @question_comments.each do |comment| %>
-        <span><%= comment.comment %></span>
-        <span>- <%= User.find(comment.user_id).username %></span>
-        <span> on <%= pretty_time(comment.created_at)%></span>
-        <br>
-      <% end %>
+    <div class="comment-list" id="question-comments">
+
     </div>
   </div>
 
