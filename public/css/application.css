@@ -29,6 +29,9 @@ input[type=submit] {
   font-size: .9em;
 }
 
+input[type=submit]:hover {
+  background-color: black;
+}
 #nav_bar {
   margin-bottom: 20px;
   position: relative;
@@ -70,6 +73,7 @@ input[type=submit] {
   display: inline;
   margin-right: 3px;
 }
+
 #title {
   margin-top: 6px;
   position: absolute;
@@ -90,6 +94,10 @@ input[type=submit] {
   right: 0;
 }
 
+#buttons a:hover{
+  background-color: black;
+}
+
 .main {
   margin: 25px;
 }
@@ -107,10 +115,6 @@ input[type=submit] {
   background-color: #7F3FBF;
   color: white;
   font-size: .85em;
-}
-
-.button_links:hover {
-  background: black;
 }
 
 .button_links.visited {
@@ -173,9 +177,6 @@ input[type=submit] {
   color: #7F3FBF;
 }
 
-.question_title a:hover {
-    color: black;
-}
 
 .time {
   font-size: .9em;
@@ -214,14 +215,6 @@ input[type=submit] {
 
 .login-submit {
   margin: 10px;
-}
-
-.login-submit input:hover {
-  background-color: black;
-  overflow: hidden;
-  float: left;
-  width: 100%;
-  border-bottom:  1px solid #7F3FBF;
 }
 
 .users-container {
