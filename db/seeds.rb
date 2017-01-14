@@ -1,4 +1,4 @@
-user_one = User.create(username: "test", email: "abc@123", password: "PASSword99!")
+user_one = User.create(username: "testtest", email: "abc@123", password: "PASSword99!")
 
 user_three = User.create(email: "dbc3@dbc.com", password: "PASSword99!")
 

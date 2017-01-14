@@ -31,11 +31,14 @@ end
 
 get '/questions/:id' do
   @question = Question.find(params[:id])
+  @question_comments = Comment.where({commentable_type: 'Question'})
+  @answer_comments = Comment.where({commentable_type: 'Answer'})
 
   @answers = @question.answers
   # @answer = Answer.find_by(question_id: @question)
   # @answer_count = @answer.count
   @comments = @question.comments
+
   erb :'/questions/show'
 end
 
@@ -65,5 +68,25 @@ delete '/questions/:id' do
     "#{question.id}"
   else
     redirect '/questions/new'
+  end
+end
+
+post '/questions/:id/comment' do
+  question = Question.find(params[:id])
+  @question_comment = question.comments.create(comment: params[:comment], commentable_id: question.id, commentable_type: question, user_id: current_user.id)
+  if request.xhr?
+    erb :"partial/_question_comment", layout: false
+  else
+    redirect :"/questions/#{params[:id]}"
+  end
+end
+
+post '/questions/answers/:id/comment' do
+  answer = Answer.find(params[:id])
+  @answer_comment = answer.comments.create(comment: params[:comment], commentable_id: answer.id, commentable_type: answer, user_id: current_user.id)
+  if request.xhr?
+    erb :"partial/_answer_comment", layout: false
+  else
+    redirect :"/questions/#{params[:id]}"
   end
 end
