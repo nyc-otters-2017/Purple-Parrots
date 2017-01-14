@@ -33,6 +33,12 @@ get '/questions/:id' do
   @question = Question.find(params[:id])
   @question_comments = Comment.where({commentable_type: 'Question'})
   @answer_comments = Comment.where({commentable_type: 'Answer'})
+  
+  @answers = @question.answers
+  # @answer = Answer.find_by(question_id: @question)
+  # @answer_count = @answer.count
+  @comments = @question.comments
+
   erb :'/questions/show'
 end
 
