@@ -1,15 +1,22 @@
 <div class="new-user-container">
-<h2 class="questions_title">Create your Kernal Panic account.</h2>
-  <form class="new-user-form" action="/users" method="post">
-    <label for="user[email]">Email:</label>
-    <input type="email" name="user[email]" placeholder="email" class="email">
-    <label for="user[password1]">Password:</label>
-    <input type="password" name="user[password1]" placeholder="password" class="password">
-    <label for="user[password2]">Password:</label>
-    <input type="password" name="user[password2]" placeholder="password" class="password">
-    <input type="submit" name="submit" value="Register">
-  </form>
+  <h2 class="questions_title">Create your Kernal Panic account.</h2>
+  <div class="new-container">
+    <form class="new-user-form" action="/users" method="post">
+      <div class="login-email">
+        <label for="user[email]">Email:</label>
+        <input type="email" name="user[email]" placeholder="email" class="email">
+      </div>
+      <div class="login-password">
+        <label for="user[password1]">Password:</label>
+        <input type="password" name="user[password1]" placeholder="password" class="password">
+        <label for="user[password2]">Password:</label>
+        <input type="password" name="user[password2]" placeholder="password" class="password">
+      </div>
+      <div class="login-submit">
+        <input type="submit" name="submit" value="Register">
+      </div>
+    </form>
 
-  <%= erb :'/partial/_errors' %>
-
+    <%= erb :'/partial/_errors' %>
+  </div>
 </div>

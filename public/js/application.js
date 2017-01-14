@@ -44,4 +44,9 @@ $(document).ready(function(){
     })
   })
 
+  $("#logo").mouseover(function(){
+    this.src = '/images/Kernal_Panic_popcorn.jpg'
+  }).mouseout(function(){
+    this.src = '/images/Kernal_Panic_kernal.jpg'
+  })
 });
