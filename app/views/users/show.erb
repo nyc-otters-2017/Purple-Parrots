@@ -1,16 +1,24 @@
 <div class="profile-container">
-  <svg id="profile-picture" width="160" height="160" data-jdenticon-hash="<%= @hash %>"></svg>
-<ul class="user-info">
-  <li><%= @user.username %></li>
-  <li>Title: <%= @user.title %></li>
-  <li>Location: <%= @user.location %></li>
-  <li><%= @user.votes.count %></li>
-  <% if current_user == @user %>
-    <li><a href="/users/<%= @user.id %>/edit">click here to edit</a></li>
-  <% end %>
-</ul>
-<ul class="about-me">
-  <li >About me:</li>
-  <li><p><%= @user.about_me %></p></li>
-</ul>
+  <div class='picture-show-container'>
+    <svg id="profile-picture" width="160" height="160" data-jdenticon-hash="<%= @hash %>"></svg>
+  </div>
+  <div class="user-show-container"
+    <ul>
+      <li class="user-info"><%= @user.username %></li>
+      <li class="user-info">Title: <%= @user.title %></li>
+      <li class="user-info">Location: <%= @user.location %></li>
+      <li class="user-info">Points: <%= @user.votes.count %></li>
+      <% current_user == @user ? link = 'edit' : link = 'no link' %>
+      <% if link == 'edit' %>
+        <li class="edit-user-link"><a href="/users/<%= @user.id %>/edit">click here to edit</a></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="about-me">
+    <ul>
+      <li >About me:</li>
+      <li><p><%= @user.about_me %></p></li>
+    </ul>
+  </div>
 </div>
