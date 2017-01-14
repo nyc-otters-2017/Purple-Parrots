@@ -21,6 +21,14 @@ ul {
   margin: 0;
 }
 
+input[type=submit] {
+  border: none;
+  font-weight: 600;
+  color: white;
+  background-color: #7F3FBF;
+  font-size: .9em;
+}
+
 #nav_bar {
   margin-bottom: 20px;
   position: relative;
@@ -188,42 +196,109 @@ ul {
   margin: 10px;
 }
 
-.login-submit input {
-  border: none;
-  font-weight: 600;
-  color: white;
-  background-color: #7F3FBF;
-  font-size: .9em;
-}
-
 .login-submit input:hover {
   background-color: black;
-}
-
-.user {
-  color: #7F3FBF;
-}
-
-.users-container {
-  margin-left: 20%;
-}
-
-.individual-users {
-  margin-bottom: 20px;
-  padding-bottom: 20px;
   overflow: hidden;
   float: left;
   width: 100%;
   border-bottom:  1px solid #7F3FBF;
 }
 
-.username {
-  margin: 0;
+
+.users-container {
+  margin-left: 5px;
+  margin-right: 5px;
+  left: 10px;
 }
 
-.profile-picture {
+.individual-users {
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 0px;
+  width: 45%;
+  display: inline-block;
+  overflow: hidden;
+  float: left;
+  border-bottom:  1px solid #7F3FBF;
+  margin-bottom: 0px;
+}
+
+.picture-container {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.user-info-container {
+  float: right;
+  vertical-align: text-top;
+  display: inline-block;
+  padding-right: 15%;
+  padding-top: 20px;
+}
+
+.user-info-container p {
+  padding-bottom: 20px;
+}
+
+.questions_answered {
+  font-size: 14pt;
+}
+
+.username {
+  margin: 0;
+  font-size: 20pt;
+}
+
+
+.member-since {
+  font-style: italic;
+  font-size: 10pt;
+}
+
+.user-index-head{
+  border-bottom:  2px solid #7F3FBF;
+  margin-bottom: 0px;
+}
+
+.picture-show-container {
   display: inline-block;
   float: left;
+}
+
+#profile-picture {
+  width: 220px;
+  height: 220px;
+}
+
+.user-show-container {
+  display: inline-block;
+  padding-left: 25px;
+  padding-bottom: 15px;
+  vertical-align: top;
+}
+
+li.user-info {
+  font-size: 33px;
+  color: #7B8793;
+}
+
+.edit-user-link {
+  font-size: 14px;
+}
+
+.about-me {
+  display: block;
+  font-size: 20px;
+  color: #7B8793;
+}
+
+@media (max-width: 631px;) {
+  li.user-info {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 549px) {
@@ -266,6 +341,23 @@ ul {
     width: 50%;
     margin-top: 1px;
     font-size: .8em;
+  }
+
+  .individual-users {
+    display: block;
+  }
+
+  .user-info-container {
+    margin-left: 20%;
+    text-align: center;
+  }
+
+  li.user-info {
+    font-size: 20px;
+  }
+
+  .about-me {
+    font-size: 1em;
   }
 
 }

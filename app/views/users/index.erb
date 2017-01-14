@@ -1,16 +1,20 @@
 <%= erb :'/partial/_errors' %>
 
-<h2>Users</h2>
+<h2 class="user-index-head">Users</h2>
 
 <div class="users-container">
 
     <% @users = User.all %>
       <% @users.each do |user| %>
-      <div class="individual-users"
-      <span class="profile-picture"><svg id="profile-picture" width="80" height="80" data-jdenticon-hash="<%= email_hash(user) %>"></svg></span>
-        <span class="username"><a href="/users/<%= user.id %>"><%= user.username %></a></span>
-        <span class="questions-answered">Questions answered: <%= user.answers.count %></span>
-        <span class="member-since">Member since: <%= pretty_time(user.created_at)  %></span>
+      <div class="individual-users">
+        <div class="picture-container">
+          <span class="profile-picture"><svg id="profile-picture" width="100" height="100" data-jdenticon-hash="<%= email_hash(user) %>"></svg></span>
+        </div>
+        <div class='user-info-container'>
+          <p class="username"><a href="/users/<%= user.id %>"><%= user.username %></a></p>
+          <p class="questions-answered">Questions answered: <%= user.answers.count %></p>
+          <p class="member-since">Member since: <%= pretty_time(user.created_at)  %></p>
+        </div>
       </div>
       <% end %>
 
