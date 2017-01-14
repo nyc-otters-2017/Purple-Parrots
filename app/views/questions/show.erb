@@ -14,20 +14,23 @@
   <h2 class="questions_title"><%= @question.title %></h2>
 
   <br>
-  <h4><%= @question.question %></h4>
+  <article class="elfdfdfjksfvjkquestion"><%= @question.question %></article>
 
   <div class="comments">
 
-    <% if current_user %>
-    <form id="comments-for-questions" method="post" action="/questions/<%= @question.id %>/comment">
-      <label for="comment">Add a comment</label>
-      <input type="text" name="comment">
-      <input type="submit" value="post comment">
-    </form>
-    <% end %>
     <div class="comment-list" id="question-comments">
-
+      <% @comments.each do |comment| %>
+        <%= erb :'partial/_question_comment', layout: false, locals: {comment: comment}%>
+      <% end %>
     </div>
+
+    <% if current_user %>
+     <form id="comments-for-questions" method="post" action="/questions/<%= @question.id %>/comment">
+       <label for="comment">Add a comment</label>
+       <input class="comment" type="text" name="comment">
+       <input type="submit" value="post comment">
+     </form>
+    <% end %>
   </div>
 
   <br><br>
