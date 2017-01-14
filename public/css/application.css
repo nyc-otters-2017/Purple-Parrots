@@ -52,9 +52,9 @@ ul {
 }
 
 #title_bar {
-    position: relative;
-    height: 50px;
-    margin: 0 25px;
+  position: relative;
+  height: 50px;
+  margin: 0 25px;
 }
 
 #title {
@@ -87,15 +87,15 @@ ul {
 }
 
 .button_links {
-    padding: 5px 10px;
-    width: 50px;
-    background-color: #7F3FBF;
-    color: white;
-    font-size: .85em;
+  padding: 5px 10px;
+  width: 50px;
+  background-color: #7F3FBF;
+  color: white;
+  font-size: .85em;
 }
 
 .button_links:hover {
-    background: black;
+  background: black;
 }
 
 .button_links.visited {
@@ -165,6 +165,40 @@ ul {
   color: #7F3FBF;
 }
 
+.login-container {
+  border: solid black .1px;
+  width: 250px;
+  height: 175px;
+  font-size: .98em;
+  font-weight: 600;
+}
+
+
+.login-email {
+  width: 50%;
+  margin: 10px;
+}
+
+.login-password {
+  width: 50%;
+  margin: 10px;
+}
+
+.login-submit {
+  margin: 10px;
+}
+
+.login-submit input {
+  border: none;
+  font-weight: 600;
+  color: white;
+  background-color: #7F3FBF;
+  font-size: .9em;
+}
+
+.login-submit input:hover {
+  background-color: black;
+}
 @media (max-width: 549px) {
   #title {
     position: relative;;
@@ -177,7 +211,7 @@ ul {
   }
 
   .main {
-    margin: 0;
+    margin: 5px;
   }
 
   .button_links {

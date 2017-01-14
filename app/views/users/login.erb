@@ -1,12 +1,18 @@
-<h1>Login</h1>
+<h2 class="questions_title">Login</h2>
 
 <div class="login-container">
   <form class="login-form" action="/users/login" method="post">
-    <label for="email">Email, yo.</label>
-    <input type="email" name="email">
-    <label for="password">Password</label>
-    <input type="password" name="password">
-    <input type="submit" name="submit" value="Log in">
+    <div class="login-email">
+      <label for="email">Email, yo.</label>
+      <input type="email" name="email">
+    </div>
+    <div class="login-password">
+      <label for="password">Password</label>
+      <input type="password" name="password">
+    </div>
+    <div class="login-submit">
+      <input type="submit" name="submit" value="Log in">
+    </div>
   </form>
   <%= erb :'/partial/_errors' %>
 </div>

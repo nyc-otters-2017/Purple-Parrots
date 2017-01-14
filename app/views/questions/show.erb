@@ -1,10 +1,18 @@
 <div class="show-question">
 
-  <h2><%= @question.title %></h2>
+  <div>
+    <span><a href="">&#8679;</a></span>
+    <span><%= @question.votes.count %></span>
+    <span><a href="">&#8681;</a></span>
+  </div>
+
+  <h2 class="questions_title"><%= @question.title %></h2>
+
   <br>
   <h4><%= @question.question %></h4>
 
   <div class="comments">
+
     <% if current_user %>
     <form id="comments-for-questions" method="post" action="/questions/<%= @question.id %>/comment">
       <label for="comment">Add a comment</label>
