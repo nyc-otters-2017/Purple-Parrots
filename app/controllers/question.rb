@@ -67,6 +67,6 @@ end
 
 post '/questions/:id/comment/new' do
   question = Question.find(params[:id])
-  @question_comment = question.comments.create(comment: "Great question", commentable_id: question.id, commentable_type: question, user_id: 1)
+  @question_comment = question.comments.create(comment: params[:comment], commentable_id: question.id, commentable_type: question, user_id: current_user.id)
   redirect :"/questions/#{params[:id]}"
 end
