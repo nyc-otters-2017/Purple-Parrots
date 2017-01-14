@@ -7,6 +7,7 @@ get '/questions' do
 end
 
 get '/questions/new' do
+  require_user
   # must be current_user to persist question once posted
   erb :'/questions/new'
   # this page should contain the question form
@@ -17,7 +18,7 @@ get '/questions/new' do
 end
 
 post '/questions' do
-  @question = Question.new( title: params[:title], question: params[:question] )
+  @question = Question.new(user_id: current_user.id, title: params[:title], question: params[:question] )
   if @question.save
     status 200
     redirect "/questions/#{@question.id}"
