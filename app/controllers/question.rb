@@ -33,7 +33,7 @@ get '/questions/:id' do
   @question = Question.find(params[:id])
   @question_comments = Comment.where({commentable_type: 'Question'})
   @answer_comments = Comment.where({commentable_type: 'Answer'})
-  
+
   @answers = @question.answers
   # @answer = Answer.find_by(question_id: @question)
   # @answer_count = @answer.count
@@ -71,14 +71,14 @@ delete '/questions/:id' do
   end
 end
 
-post '/questions/:id/comment/' do
+post '/questions/:id/comment' do
   question = Question.find(params[:id])
   @question_comment = question.comments.create(comment: params[:comment], commentable_id: question.id, commentable_type: question, user_id: current_user.id)
   redirect :"/questions/#{params[:id]}"
 end
 
-post 'questions/answers/:id/comment/' do
+post '/questions/answers/:id/comment' do
   answer = Answer.find(params[:id])
-  @answer_comment = Answer.comments.create(comment: params[:comment], commentable_id: question.id, commentable_type: answer, user_id: current_user.id)
+  @answer_comment = answer.comments.create(comment: params[:comment], commentable_id: answer.id, commentable_type: answer, user_id: current_user.id)
   redirect :"/questions/#{params[:id]}"
 end
