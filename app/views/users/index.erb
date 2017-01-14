@@ -8,7 +8,7 @@
       <% @users.each do |user| %>
       <div class="individual-users">
         <div class="picture-container">
-          <span class="profile-picture"><svg id="profile-picture" width="120" height="120" data-jdenticon-hash="<%= email_hash(user) %>"></svg></span>
+          <span class="profile-picture"><svg id="profile-picture" width="100" height="100" data-jdenticon-hash="<%= email_hash(user) %>"></svg></span>
         </div>
         <div class='user-info-container'>
           <p class="username"><a href="/users/<%= user.id %>"><%= user.username %></a></p>
