@@ -16,7 +16,7 @@ $(document).ready(function(){
     });
   });
 
-  $("#comments-for-questions").on("submit", function(event) {
+  $("#comments-for-questions").submit(function(event) {
     event.preventDefault();
     var type = $(event.target).attr("method")
     var url = $(event.target).attr("action")
@@ -27,6 +27,7 @@ $(document).ready(function(){
       data: data
     }).success(function(response) {
       $("#question-comments").append(response);
+      $("#q-comment").val('');
     })
   })
 

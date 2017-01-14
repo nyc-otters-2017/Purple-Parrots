@@ -42,7 +42,6 @@ get '/questions/:id' do
   erb :'/questions/show'
 end
 
-
 get '/questions/:id/edit' do
   # must be current_user to locate specific user's question - need user_id
   @question = Question.find(params[:id])
@@ -73,9 +72,14 @@ end
 
 post '/questions/:id/comment' do
   question = Question.find(params[:id])
-  @question_comment = question.comments.create(comment: params[:comment], commentable_id: question.id, commentable_type: question, user_id: current_user.id)
+  comment = question.comments.new(comment: params[:comment], commentable_id: question.id, commentable_type: question, user_id: current_user.id)
   if request.xhr?
-    erb :"partial/_question_comment", layout: false
+    if comment.save
+      status 200
+      erb :"partial/_question_comment", layout: false, locals: {comment: comment}
+    else status
+      status 422
+    end
   else
     redirect :"/questions/#{params[:id]}"
   end
@@ -89,4 +93,9 @@ post '/questions/answers/:id/comment' do
   else
     redirect :"/questions/#{params[:id]}"
   end
+end
+
+
+get 'comments/new' do
+  erb :'/comments/new'
 end

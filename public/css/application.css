@@ -295,6 +295,20 @@ li.user-info {
   color: #7B8793;
 }
 
+.comment-list {
+  width: 45%;
+}
+
+.comment-comment {
+  background-color: #897BAF;
+  border-radius: 3px;
+}
+
+.comment-time {
+  font-style: italic;
+  font-size: 10pt;
+}
+
 @media (max-width: 631px;) {
   li.user-info {
     font-size: 20px;
