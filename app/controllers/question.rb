@@ -31,7 +31,8 @@ end
 
 get '/questions/:id' do
   @question = Question.find(params[:id])
-  @comments = Comment.all
+  @question_comments = Comment.where({commentable_type: 'Question'})
+  @answer_comments = Comment.where({commentable_type: 'Answer'})
   erb :'/questions/show'
 end
 
@@ -62,4 +63,10 @@ delete '/questions/:id' do
   else
     redirect '/questions/new'
   end
+end
+
+post '/questions/:id/comment/new' do
+  question = Question.find(params[:id])
+  @question_comment = question.comments.create(comment: "Great question", commentable_id: question.id, commentable_type: question, user_id: 1)
+  redirect :"/questions/#{params[:id]}"
 end
