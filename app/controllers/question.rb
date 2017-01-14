@@ -84,5 +84,9 @@ end
 post '/questions/answers/:id/comment' do
   answer = Answer.find(params[:id])
   @answer_comment = answer.comments.create(comment: params[:comment], commentable_id: answer.id, commentable_type: answer, user_id: current_user.id)
-  redirect :"/questions/#{params[:id]}"
+  if request.xhr?
+    erb :"partial/_answer_comment", layout: false
+  else
+    redirect :"/questions/#{params[:id]}"
+  end
 end
