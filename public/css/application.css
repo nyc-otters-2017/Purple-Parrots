@@ -199,6 +199,33 @@ ul {
 .login-submit input:hover {
   background-color: black;
 }
+
+.user {
+  color: #7F3FBF;
+}
+
+.users-container {
+  margin-left: 20%;
+}
+
+.individual-users {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  overflow: hidden;
+  float: left;
+  width: 100%;
+  border-bottom:  1px solid #7F3FBF;
+}
+
+.username {
+  margin: 0;
+}
+
+.profile-picture {
+  display: inline-block;
+  float: left;
+}
+
 @media (max-width: 549px) {
   #title {
     position: relative;;
