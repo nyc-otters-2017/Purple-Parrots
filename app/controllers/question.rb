@@ -90,3 +90,25 @@ post '/questions/answers/:id/comment' do
     redirect :"/questions/#{params[:id]}"
   end
 end
+
+
+post '/questions/:id/upvote' do
+  @question = Question.find(params[:id])
+  @question_vote = @question.votes.create(votable_id: @question.id, votable_type: @question, user_id: current_user.id)
+  if request.xhr?
+    "#{@question.votes.count}"
+  else
+    redirect "/questions/#{params[:id]}"
+  end
+end
+
+
+post '/questions/:id/downvote' do
+  @question = Question.find(params[:id])
+  @delete_vote = @question.votes.last.delete
+  if request.xhr?
+    "#{@question.votes.count}"
+  else
+    redirect "/questions/#{params[:id]}"
+  end
+end
