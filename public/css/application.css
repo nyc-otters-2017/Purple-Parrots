@@ -52,9 +52,9 @@ ul {
 }
 
 #title_bar {
-    position: relative;
-    height: 50px;
-    margin: 0 25px;
+  position: relative;
+  height: 50px;
+  margin: 0 25px;
 }
 
 #title {
@@ -75,6 +75,10 @@ ul {
   right: 0;
 }
 
+.main {
+  margin: 25px;
+}
+
 .questions_title {
   font-variant: small-caps;
   padding-bottom: 5px;
@@ -83,15 +87,15 @@ ul {
 }
 
 .button_links {
-    padding: 5px 10px;
-    width: 50px;
-    background-color: #7F3FBF;
-    color: white;
-    font-size: .85em;
+  padding: 5px 10px;
+  width: 50px;
+  background-color: #7F3FBF;
+  color: white;
+  font-size: .85em;
 }
 
 .button_links:hover {
-    background: black;
+  background: black;
 }
 
 .button_links.visited {
@@ -161,6 +165,45 @@ ul {
   color: #7F3FBF;
 }
 
+.login-container {
+  border: solid black .1px;
+  width: 250px;
+  height: 175px;
+  font-size: .98em;
+  font-weight: 600;
+}
+
+
+.login-email {
+  width: 50%;
+  margin: 10px;
+}
+
+.login-password {
+  width: 50%;
+  margin: 10px;
+}
+
+.login-submit {
+  margin: 10px;
+}
+
+.login-submit input {
+  border: none;
+  font-weight: 600;
+  color: white;
+  background-color: #7F3FBF;
+  font-size: .9em;
+}
+
+.login-submit input:hover {
+  background-color: black;
+}
+
+.user {
+  color: #7F3FBF;
+}
+
 .users-container {
   margin-left: 20%;
 }
@@ -192,6 +235,10 @@ ul {
     left: 0;
     padding: 0;
     margin: 10px 0;
+  }
+
+  .main {
+    margin: 5px;
   }
 
   .button_links {

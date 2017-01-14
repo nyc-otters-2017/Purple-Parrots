@@ -1,25 +1,56 @@
 <div class="show-question">
 
-  <h2><%= @question.title %></h2>
+  <div>
+    <span><a href="">&#8679;</a></span>
+    <span><%= @question.votes.count %></span>
+    <span><a href="">&#8681;</a></span>
+  </div>
+
+  <h2 class="questions_title"><%= @question.title %></h2>
+
   <br>
   <h4><%= @question.question %></h4>
 
   <div class="comments">
-    <form id="comment" method="post" action="/comment/new">
+
+    <% if current_user %>
+    <form id="comments-for-questions" method="post" action="/questions/<%= @question.id %>/comment">
       <label for="comment">Add a comment</label>
       <input type="text" name="comment">
       <input type="submit" value="post comment">
     </form>
-    <ul class="comment-list">
-      <% @comments.each do |comment| %>
-      <li><%= comment.comment %></li>
-      <% end %>
-    </ul>
+    <% end %>
+    <div class="comment-list" id="question-comments">
+
+    </div>
   </div>
 
   <br><br>
 
-  <form id="answer-form" method="post" action="/questions/<%= @question.id %>">
+  <div class="answer-container">
+    <p>
+      <%= erb :'_answer' %>
+    </p>
+  </div>
+
+  <br>
+
+  <div class="comments">
+    <% if current_user %>
+    <form id="comments-for-answers" method="post" action="answers/<%= @question.id %>/comment">
+      <label for="comment">Add a comment</label>
+      <input type="text" name="comment">
+      <input type="submit" value="post comment">
+    </form>
+    <% end %>
+    <div class="comment-list" id="answer-comments">
+
+    </div>
+  </div>
+
+  <br>
+
+  <form id="answer-form" method="post" action="/questions/<%= Answer.last.id %>/answer">
     <p>We need your help! Kernel Panic depends on everyone sharing their knowledge, and that begins with you! If you're able to answer this question, please, grace us!</p>
     <br><br>
     <textarea name="answer" id="answer-input" class="answer-input" placeholder="Answer" rows="10" cols="70"></textarea>
@@ -28,18 +59,6 @@
     <br><br>
   </form>
 
-  <div class="comments">
-    <form id="comment" method="post" action="/comment/new">
-      <label for="comment">Add a comment</label>
-      <input type="text" name="comment">
-      <input type="submit" value="post comment">
-    </form>
-    <ul class="comment-list">
-    </ul>
-  </div>
-
   <article class="edit-question-link">
     <a href="/questions/<%= @question.id %>/edit">Edit this question</a>
   <article>
-
-</div>

@@ -1,24 +1,47 @@
 $(document).ready(function(){
 
-  $("#answer-form").submit(function(e) {
+  $("#answer-form").on("submit", function(e) {
     e.preventDefault();
 
     var url = $(e.target).attr("action");
     var data = $(e.target).serialize();
-    debugger
     $.ajax({
-      method: "post",
+      type: "post",
       url: url,
       data: data
     }).success(function(response) {
-      // debugger
-      console.log("hi")
-      // $(".show-question").append(response);
+      $(".answer-container").append(response);
     }).fail(function(error) {
       console.log(error)
     });
   });
 
+  $("#comments-for-questions").on("submit", function(event) {
+    event.preventDefault();
+    var type = $(event.target).attr("method")
+    var url = $(event.target).attr("action")
+    var data = $(event.target).serialize();
+    $.ajax({
+      type: type,
+      url: url,
+      data: data
+    }).success(function(response) {
+      $("#question-comments").append(response);
+    })
+  })
 
+  $("#comments-for-answers").on("submit", function(event) {
+    event.preventDefault();
+    var type = $(event.target).attr("method")
+    var url = $(event.target).attr("action")
+    var data = $(event.target).serialize();
+    $.ajax({
+      type: type,
+      url: url,
+      data: data
+    }).success(function(response) {
+      $("#answer-comments").append(response);
+    })
+  })
 
 });

@@ -1,0 +1,7 @@
+<article>
+  <br>
+  <span><%= @question_comment.comment %></span>
+  <span>- <%= current_user.username %></span>
+  <span> on <%= pretty_time(@question_comment.created_at)%></span>
+  <br>
+</article>
