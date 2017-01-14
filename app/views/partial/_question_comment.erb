@@ -1,5 +1,5 @@
-<article>
-    <li class="comment-username">-<a href="/users/<%=comment.user.id%>"> <%= comment.user.username %></a></li>
-    <li class="comment-comment"> <%= comment.comment %></li>
-    <li class="comment-time"> on <%= pretty_time(comment.created_at)%></li>
+<article class="comment-container">
+    <span class="comment-username">-<a href="/users/<%=comment.user.id%>"> <%= comment.user.username %></a></span>
+    <span class="comment-comment"> <%= comment.comment %></span>
+    <span class="comment-time"> on <%= pretty_time(comment.created_at)%></span>
 </article>

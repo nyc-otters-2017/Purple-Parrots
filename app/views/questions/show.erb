@@ -9,14 +9,14 @@
   <h2 class="questions_title"><%= @question.title %></h2>
 
   <br>
-  <h4><%= @question.question %></h4>
+  <article class="elfdfdfjksfvjkquestion"><%= @question.question %></article>
 
   <div class="comments">
 
     <div class="comment-list" id="question-comments">
-      <ul> <% @comments.each do |comment| %>
-      <%= erb :'partial/_question_comment', layout: false, locals: {comment: comment}%>
-      </ul> <% end %>
+      <% @comments.each do |comment| %>
+        <%= erb :'partial/_question_comment', layout: false, locals: {comment: comment}%>
+      <% end %>
     </div>
 
     <% if current_user %>

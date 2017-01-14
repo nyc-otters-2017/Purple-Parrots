@@ -147,6 +147,7 @@ input[type=submit] {
   float: left;
   width: 65%;
   margin-top: 16px;
+  border-bottom: 1px solid #7F3FBF;
 }
 
 .question_title {
@@ -302,6 +303,11 @@ li.user-info {
 .comment-comment {
   background-color: #897BAF;
   border-radius: 3px;
+  display: inline-block;
+}
+
+.comment-container {
+  padding-bottom: 10px;
 }
 
 .comment-time {
