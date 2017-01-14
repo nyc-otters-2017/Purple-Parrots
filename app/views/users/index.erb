@@ -3,14 +3,15 @@
 <h2>Users</h2>
 
 <div class="users-container">
-  <ul>
+
     <% @users = User.all %>
       <% @users.each do |user| %>
-        <li><a href="/users/<%= user.id %>"><%= user.username %></a></li>
-        <li>Questions answered: <%= user.answers.count %></li>
-        <li>  <svg id="profile-picture" width="80" height="80" data-jdenticon-hash="<%= email_hash(user) %>"></svg></li>
-        <li><%= pretty_time(user.created_at)  %></li>
-
+      <div class="individual-users"
+      <span class="profile-picture"><svg id="profile-picture" width="80" height="80" data-jdenticon-hash="<%= email_hash(user) %>"></svg></span>
+        <span class="username"><a href="/users/<%= user.id %>"><%= user.username %></a></span>
+        <span class="questions-answered">Questions answered: <%= user.answers.count %></span>
+        <span class="member-since">Member since: <%= pretty_time(user.created_at)  %></span>
+      </div>
       <% end %>
-  </ul>
+
 </div>
