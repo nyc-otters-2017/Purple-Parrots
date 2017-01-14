@@ -32,14 +32,8 @@ end
 
 get '/questions/:id' do
   @question = Question.find(params[:id])
-  @question_comments = Comment.where({commentable_type: 'Question'})
-  @answer_comments = Comment.where({commentable_type: 'Answer'})
-
   @answers = @question.answers
-  # @answer = Answer.find_by(question_id: @question)
-  # @answer_count = @answer.count
   @comments = @question.comments
-
   erb :'/questions/show'
 end
 
@@ -77,7 +71,7 @@ post '/questions/:id/comment' do
   if request.xhr?
     if comment.save
       status 200
-      erb :"partial/_question_comment", layout: false, locals: {comment: comment}
+      erb :"partial/_answer_comment", layout: false, locals: {comment: comment}
     else status
       status 422
     end
@@ -88,11 +82,17 @@ end
 
 post '/questions/answers/:id/comment' do
   answer = Answer.find(params[:id])
-  @answer_comment = answer.comments.create(comment: params[:comment], commentable_id: answer.id, commentable_type: answer, user_id: current_user.id)
+  question = answer.question
+  comment = answer.comments.new(comment: params[:comment], commentable_id: answer.id, commentable_type: answer, user_id: current_user.id)
   if request.xhr?
-    erb :"partial/_answer_comment", layout: false
+    if comment.save
+      status 200
+      erb :"partial/_answer_comment", layout: false, locals: {answer: answer, comment: comment}
+    else status
+      status 422
+    end
   else
-    redirect :"/questions/#{params[:id]}"
+    redirect :"/questions/#{question.id}"
   end
 end
 
