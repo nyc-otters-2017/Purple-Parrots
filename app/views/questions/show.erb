@@ -1,20 +1,29 @@
 <div class="show-question">
 
-  <div>
-    <form method="post" action="/questions/<%= @question.id %>/upvote" class="upvote-inline">
-      <button type="submit" id="vote-up" name="upvote" value="" class="upvote-button">&#8679;
-    </form>
-
-    <form method="post" action="/questions/<%= @question.id %>/downvote" class="downvote-inline">
-      <button type="submit" id="vote-down" name="downvote" value="" class="downvote-button">&#8681;
-    </form>
-  </div>
-  <span id="votes-counter"><%= @question.votes.count %> Votes</span>
-
   <h2 class="questions_title"><%= @question.title %></h2>
 
   <br>
-  <article class="question-answer"><%= @question.question %></article>
+
+  <article class="question-answer">
+
+    <div class="vote-buttons">
+      <div>
+        <form method="post" action="/questions/<%= @question.id %>/upvote" class="upvote-inline">
+          <button class="v-button" type="submit" id="vote-up" name="upvote" value="" class="upvote-button">&#8679;
+        </form>
+
+        <form method="post" action="/questions/<%= @question.id %>/downvote" class="downvote-inline">
+          <button class="v-button" type="submit" id="vote-down" name="downvote" value="" class="downvote-button">&#8681;
+        </form>
+      </div>
+      <span id="votes-counter"><%= @question.votes.count %> Votes</span>
+    </div>
+
+
+    <div class="question-answer-text">
+      <%= @question.question %>
+    </div>
+  </article>
 
   <div class="comments">
 
