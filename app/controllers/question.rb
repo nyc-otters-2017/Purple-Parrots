@@ -38,10 +38,13 @@ get '/questions/:id' do
 end
 
 get '/questions/:id/edit' do
-  # must be current_user to locate specific user's question - need user_id
   @question = Question.find(params[:id])
-
-  erb :'questions/edit'
+  current_user
+  if @question.user.id == @current_user.id
+    erb :'questions/edit'
+  else
+    redirect "/questions/#{@question.id}"
+  end
 end
 
 
@@ -54,14 +57,17 @@ end
 
 
 delete '/questions/:id' do
-  # id of question must match the id of the user deleting
-  # need logic/helper for this
-  question = Question.find(params[:id])
+  @question = Question.find(params[:id])
+  current_user
+  if @question.user.id == @current_user.id
   question.delete
-  if request.xhr?
-    "#{question.id}"
+    if request.xhr?
+      "#{@question.id}"
+    else
+      redirect "/questions/#{@question.id}"
+    end
   else
-    redirect '/questions/new'
+    redirect "/questions/#{@question.id}"
   end
 end
 
