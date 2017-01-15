@@ -158,14 +158,37 @@ input[type=submit]:hover {
   float: left;
   width: 65%;
   margin-top: 16px;
-  border-bottom: 1px solid #7F3FBF;
 }
 
 .question-answer {
+  position: relative;
   border-bottom: 1px solid #7F3FBF;
-  padding-bottom: 10px;
 }
 
+.vote-buttons {
+  position: absolute;
+  margin-left: 25px;
+  text-align: center;
+}
+
+.v-button {
+  font-size: 1.8em;
+  text-decoration: none;
+  background: none;
+  border: none;
+}
+
+.v-button:hover {
+  background-color: #7F3FBF;
+}
+
+#votes-counter {
+  font-weight: 600;
+  font-size: 1.1em;
+}
+.question-answer-text {
+  margin: 0 100px 50px 150px;
+}
 .question_title {
   margin: 0;
   font-weight: 600;
