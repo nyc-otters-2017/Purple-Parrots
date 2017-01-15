@@ -45,11 +45,15 @@
   <br><br>
 
   <div class="answer-container">
+
+    <h2 class="questions_title">Answers</h2>
+
     <div class="answer-comments">
-    <% @answers.each do |answer| %>
-      <%= erb :'_answer', layout: false, locals: {answer: answer} %>
-    <% end %>
-  </div>
+        <% @answers.each do |answer| %>
+        <%= erb :'_answer', layout: false, locals: {answer: answer} %>
+        <% end %>
+    </div>
+
   </div>
 
 
