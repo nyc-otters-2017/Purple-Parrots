@@ -20,9 +20,12 @@
     placeholder="You don't have to be too mysterious. Let people know about you."></textarea>
     <br>
     <p>Re-enter your password for verification</p>
-    <label for="password">Password:</label>
-    <input type="password" name="user[password]">
+    <input type="password" name="user[password]" placeholder="Type your password">
     <input type="submit" name="submit" value="Update">
   </form>
 </form>
+<form id="delete-user" action="/users/<%= @user.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+    <input type="password" name="user[password]" value="" placeholder="Delete account">
+    <input type="submit" name="submit" value="Delete account">
 </div>

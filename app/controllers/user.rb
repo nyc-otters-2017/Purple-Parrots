@@ -92,5 +92,11 @@ end
 
 
 delete '/users/:id' do
-
+  find_user(params[:id])
+  if @user && @user.authenticate(params[:user][:password])
+    @user.destroy
+  else
+    @errors = @user.errors.full_messages
+    erb :'users/edit'
+  end
 end

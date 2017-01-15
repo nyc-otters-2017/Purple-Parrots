@@ -350,6 +350,12 @@ li.user-info {
   font-size: 10pt;
 }
 
+#delete-user {
+  display: inline-block;
+  float: right;
+  margin-left: 70%;
+}
+
 @media (max-width: 631px;) {
   li.user-info {
     font-size: 20px;
