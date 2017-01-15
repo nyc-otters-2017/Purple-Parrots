@@ -2,7 +2,7 @@
 
   <h2 class="questions_title">Unanswered Questions</h2>
     <% @questions.each do |question|%>
-    <% if question.votes.count == 0 %>
+    <% if question.answers.count == 0 %>
       <article class="article">
         <div class="count">
           <span class="vote"> <%= question.votes.count %> <br> votes </span>
