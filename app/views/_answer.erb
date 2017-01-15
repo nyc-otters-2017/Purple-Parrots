@@ -1,10 +1,24 @@
 <div class="partial-container">
 
   <p class="question-answer">
-    <%= @question.answers.count %> Answers
-      <% @question.answers.each do |answer| %>
-    <br><br><%= answer.answer %>
+      <%= answer.answer %>
+      <% answer.comments.each do |comment| %>
+      <div>
+        <%= erb :"partial/_answer_comment", layout: false, locals: {comment: comment} %>
+      </div>
       <% end %>
   </p>
+
+
+  <div class="comments">
+    <% if current_user %>
+    <form class="comments-for-answers" method="post" action="/questions/answers/<%= answer.id %>/comment">
+      <label for="comment">Add a comment</label>
+      <input class="comment" type="text" name="comment">
+      <input type="submit" value="post comment">
+    </form>
+    <% end %>
+
+  </div>
 
 </div>

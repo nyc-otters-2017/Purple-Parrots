@@ -27,13 +27,12 @@ $(document).ready(function(){
       data: data
     }).success(function(response) {
       $("#question-comments").append(response);
-
       $(".comment").val('');
     })
   })
 
 
-  $("#comments-for-answers").on("submit", function(event) {
+  $(".comments-for-answers").submit(function(event) {
     event.preventDefault();
     var type = $(event.target).attr("method");
     var url = $(event.target).attr("action");
@@ -43,8 +42,11 @@ $(document).ready(function(){
       url: url,
       data: data
     }).success(function(response) {
-      $("#answer-comments").append(response);
-    });
+      $(event.target).parent().siblings().last().append(response);
+      $(".comment").val('');
+    }).fail(function(response) {
+
+    })
   });
 
   $(".upvote-inline").submit(function(e){
